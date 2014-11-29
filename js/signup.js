@@ -73,7 +73,7 @@ function validateForm(signupForm) {
 
 // validate common string field
 function validateString(field) {
-    if (0 == field.value.trim().length) {
+    if (0 === field.value.trim().length) {
         field.style.border = invalidBorder;
         return false;
     } else {
@@ -84,7 +84,7 @@ function validateString(field) {
 
 // validate zip code field
 function validateZipcode(zipField) {
-    var zipRegExp = new RegExp("^\\d{5}$")
+    var zipRegExp = new RegExp("^\\d{5}$");
     if (!zipRegExp.test(zipField.value.trim())) {
         zipField.style.border = invalidBorder;
         return false;
@@ -124,7 +124,7 @@ function validateAge(birthdayField, dob) {
 
 function onOccupationChange() {
     // use getElementsByName here to return an array and pick the first one since the Id tag is missing
-    if (this.value == "other") {
+    if (this.value === "other") {
         document.getElementsByName("occupationOther")[0].style.display = "block";
     } else {
         document.getElementsByName("occupationOther")[0].style.display = "none";
@@ -134,7 +134,7 @@ function onOccupationChange() {
 // window.confirm version of the confirmation dialog
 function onClick() {
     var resp = window.confirm("Are you really want to leave?");
-    if (resp == true) {
+    if (resp === true) {
         window.location = "http://google.com";
     } else {
         // do nothing and stay on the page

@@ -4,8 +4,15 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        jshint: {
-            all: ['Gruntfile.js', 'js/app.js', 'signup.js']
+        jshint: {                 
+            ignore_warning: {
+                options: {
+                    '-W097': true,
+                    '-W117': true,
+                    '-W069': true
+                },
+                src: ['Gruntfile.js', 'js/*.js', '!js/bootstrap.js', '!js/jquery-2.1.1.js'],
+            }
         },
 
         uglify: {
@@ -13,8 +20,9 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: 'js',
-                    src: ['app.js', 'signup.js'],
-                    dest: 'js-new/'
+                    src: ['*.js', '!bootstrap.js', '!jquery-2.1.1.js'],
+                    dest: 'js-new/',
+                    ext: '.min.js'
                 }]
             }
         },
